@@ -21,7 +21,7 @@ class StoriesController < ApplicationController
     def destroy
         story = Story.find(params[:id])
         story.destroy
-        render json: {message: "#{story.name} has been deleted"}
+        render json: {message: "#{story.title} has been deleted"}
     end
 
     def update 

@@ -1,4 +1,4 @@
 class Story < ApplicationRecord
-    has_many :characters
-    has_many :plot_points 
+    has_many :characters, dependent: :destroy
+    has_many :plot_points, dependent: :destroy
 end
