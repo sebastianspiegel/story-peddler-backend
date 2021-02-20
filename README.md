@@ -10,8 +10,7 @@ This application was created as part of the software develpment course at Flatir
 
 After downloading, navigate into the repo and execute:
 1. ``` bundle install ```
-2. ``` rails db:seed ```
-3. ``` rails s ```
+2. ``` rails s ```
 This will start the database server. 
 
 ## Development 
