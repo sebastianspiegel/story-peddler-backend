@@ -36,6 +36,6 @@ class PlotPointsController < ApplicationController
     private
 
     def plot_point_params
-        params.require(:plot_point).permit(:description, :story_id)
+        params.require(:plot_point).permit(:description, :order, :story_id)
     end
 end

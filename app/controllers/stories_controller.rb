@@ -14,7 +14,7 @@ class StoriesController < ApplicationController
         if story.save
             render json: StorySerializer.new(story)
         else
-            render json: {error: "failed to create"}
+            render json: {message: "failed to create"}
         end
     end
 

@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_02_17_162227) do
 
   create_table "plot_points", force: :cascade do |t|
     t.string "description"
+    t.integer "order"
     t.bigint "story_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

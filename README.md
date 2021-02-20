@@ -1,24 +1,23 @@
-# README
+# Story Peddler (backend)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Backend Rails application for the Story Peddler application. To be used with https://github.com/sebastianspiegel/story-peddler-frontend. 
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+After downloading, navigate into the repo and execute:
+1. ``` bundle install ```
+2. ``` rails db:seed ```
+3. ``` rails s ```
+This will start the database server. 
 
-* System dependencies
+## Development 
 
-* Configuration
+This site is currently under development. 
 
-* Database creation
+## Contributing
 
-* Database initialization
+Bug reports and pull requests are welcome on GitHub at https://github.com/sebastianspiegel/witcher-notice-board/. 
 
-* How to run the test suite
+## License
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

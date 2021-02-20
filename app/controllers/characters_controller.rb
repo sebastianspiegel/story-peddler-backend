@@ -14,7 +14,7 @@ class CharactersController < ApplicationController
         if character.save
             render json: CharacterSerializer.new(character)
         else
-            render json: {error: "failed to save"}
+            render json: {message: "failed to save"}
         end
     end
 
@@ -29,7 +29,7 @@ class CharactersController < ApplicationController
         if character.update(character_params)
             render json: CharacterSerializer.new(character)
         else
-            render json: {error: "failed to update"}
+            render json: {message: "failed to update"}
         end
     end
 

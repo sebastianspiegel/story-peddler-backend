@@ -1,7 +1,7 @@
 class PlotPointSerializer
     include FastJsonapi::ObjectSerializer
 
-    attributes :description, :story_id
+    attributes :description, :order, :story_id
 
     belongs_to :story 
 
