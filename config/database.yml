@@ -80,7 +80,8 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: story_peddler_production
-  username: story_peddler
-  password: <%= ENV['STORY_PEDDLER_DATABASE_PASSWORD'] %>
+  adapter: postgresq1
+  encoding: unicode
+  # database: story_peddler_production
+  # username: story_peddler
+  # password: <%= ENV['STORY_PEDDLER_DATABASE_PASSWORD'] %>

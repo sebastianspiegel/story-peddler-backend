@@ -20,3 +20,7 @@ tangled.characters << Character.create(name: "Prince Charming", description: "A 
 tangled.plot_points << PlotPoint.create(description: "Rapunzel and Prince Charming live happily ever after.", order: 1)
 tangled.plot_points << PlotPoint.create(description: "The prince climbs Repunzel's hair.", order: 2)
 tangled.plot_points << PlotPoint.create(description: "Rapunzel lets down her hair.", order: 3)
+
+starwars = Story.create(title: "Star Wars", genre: "SciFi", summary: "The Imperial Forces -- under orders from cruel Darth Vader -- hold Princess Leia hostage, in their efforts to quell the rebellion against the Galactic Empire. Luke Skywalker and Han Solo, captain of the Millennium Falcon, work together with the companionable droid duo R2-D2 and C-3PO to rescue the beautiful princess, help the Rebel Alliance, and restore freedom and justice to the Galaxy.")
+starwars.characters << Character.create(name: "Luke Skywaler", description: "A Tatooine farmboy who rose from humble beginnings to become one of the greatest Jedi the galaxy has ever known.")
+starwars.characters << Character.create(name: "Darth Vader", description: "A towering, black-clad, and menacing villain. His head is covered by a mechanical helmet, and the sound of his breathing is an eerie, mechanical hiss.")
