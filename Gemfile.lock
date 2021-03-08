@@ -159,7 +159,7 @@ DEPENDENCIES
   byebug
   fast_jsonapi
   listen (~> 3.3)
-  pg (~> 1.1)
+  pg
   puma (~> 5.0)
   rack-cors
   rails (~> 6.1.2, >= 6.1.2.1)
