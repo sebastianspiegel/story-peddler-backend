@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   root 'stories#index'
   resources :plot_points
   resources :characters
