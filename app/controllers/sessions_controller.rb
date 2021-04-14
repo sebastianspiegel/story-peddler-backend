@@ -3,13 +3,14 @@ class SessionsController < ApplicationController
     def create
         @user = User.find_by(username: session_params[:username])
         if @user && @user.authenticate(session_params[:password])
-            login!
+            # login!
+            session[:user_id] = @user.id
             render json: {
                 logged_in: true,
                 user: @user
             }
         else
-            redner json: {
+            render json: {
                 status: 401,
                 errors: ['no such user, please try again']
             }
@@ -17,7 +18,7 @@ class SessionsController < ApplicationController
     end
 
     def is_logged_in?
-        if logged_in? && current_user
+        if !!session[:user_id] && current_user
             render json: {
                 logged_in: true,
                 user: current_user
@@ -32,6 +33,7 @@ class SessionsController < ApplicationController
 
     def destroy
         logout!
+        byebug
         render json: {
             status: 200,
             logged_out: true
