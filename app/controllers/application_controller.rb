@@ -1,9 +1,37 @@
 class ApplicationController < ActionController::Base
-    skip_before_action :verify_authenticity_token
+    
+    # helper_method :login, :logged_in?, :current_user, :authorized_user?, :logout, :set_user
 
-    helper_method :login!, :logged_in?, :current_user, :authorized_user?, :logout!, :set_user
+    def encode_token(payload)
+        JWT.encode(payload, 'my_secret')
+    end
 
-    def login!
+    def session_user
+        decoded_hash = decoded_token
+        if !decoded_hash.empty?
+            user_id = decoded_hash[0]['user_id']
+            @user = User.find(user_id)
+        else
+            nil
+        end
+    end
+
+    def auth_header
+        request.headers['Authorization']
+    end
+
+    def decoded_token
+        if auth_header
+            token = auth_header.split(' ')[1]
+            begin
+                JWT.decode(token, 'my_secret', true, algorithm: 'HS256')
+            rescue JWT::DecodeError
+                []
+            end
+        end
+    end
+
+    def login
         session[:user_id] = @user.id
     end
 
@@ -19,7 +47,7 @@ class ApplicationController < ActionController::Base
         @user == current_user
     end
 
-    def logout!
+    def logout
         session.clear
     end
 
