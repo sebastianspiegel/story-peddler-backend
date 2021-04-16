@@ -1,9 +1,10 @@
 class SessionsController < ApplicationController
 
+    skip_before_action :verify_authenticity_token
+
     def create
         user = User.find_by(username: session_params[:username])
         if user && user.authenticate(session_params[:password])
-            # login 
             payload = {user_id: user.id}
             token = encode_token(payload)
             render json: {
