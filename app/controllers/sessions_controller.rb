@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
         user = User.find_by(username: session_params[:username])
         if user && user.authenticate(session_params[:password])
             # login 
-            payload = {user_id = user.id}
+            payload = {user_id: user.id}
             token = encode_token(payload)
             render json: {
                 user: user,
