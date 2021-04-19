@@ -1,4 +1,4 @@
-class UsersController < ActionController::Base
+class UsersController < ApplicationController
 
     skip_before_action :verify_authenticity_token
 
@@ -17,7 +17,11 @@ class UsersController < ActionController::Base
         if user.save
             payload = {user_id: user.id}
             token = encode_token(payload)
-            render json: {user: user, jwt: token}
+            render json: {
+                user: user,
+                jwt: token,
+                success: true
+            }
         else
             render json: {message: "failed to create"}
         end
