@@ -23,7 +23,7 @@ class UsersController < ApplicationController
                 success: true
             }
         else
-            render json: {message: "failed to create"}
+            render json: {message: "Unable to creat account. Please make sure your username is at least 4 characters long and your passwords match."}
         end
     end
 
