@@ -7,10 +7,10 @@ class UsersController < ApplicationController
     #     render json: StorySerializer.new(stories)
     # end
 
-    # def show
-    #     story = Story.find(params[:id])
-    #     render json: story.to_json
-    # end
+    def show
+        user = User.find(params[:id])
+        render json: user.to_json(include: :stories, except: :password_digest)
+    end
 
     def create
         user = User.new(user_params)
