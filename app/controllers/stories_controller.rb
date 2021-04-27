@@ -6,7 +6,7 @@ class StoriesController < ApplicationController
 
     def show
         story = Story.find(params[:id])
-        render json: story.to_json
+        render json: story.to_json(include: [:characters, :plot_points])
     end
 
     def create
