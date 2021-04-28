@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :characters
   resources :stories
   resources :users, only: [:create, :show, :index] 
+  resources :users do
+    resources :stories, only: [:show, :new, :create, :index]
+  end
 
 #   resources :users, only: [:create, :show, :index] do 
 #     resources :items, only: [:create, :show, :index, :destroy]
