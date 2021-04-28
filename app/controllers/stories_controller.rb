@@ -1,4 +1,7 @@
 class StoriesController < ApplicationController
+
+    skip_before_action :verify_authenticity_token
+
     def index 
         stories = Story.all 
         render json: StorySerializer.new(stories)
@@ -12,7 +15,10 @@ class StoriesController < ApplicationController
     def create
         story = Story.new(story_params)
         if story.save
-            render json: StorySerializer.new(story)
+            render json: {
+                story: story,
+                success: true
+            }
         else
             render json: {message: "failed to create"}
         end
