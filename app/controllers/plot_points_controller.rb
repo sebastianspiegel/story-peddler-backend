@@ -1,4 +1,7 @@
 class PlotPointsController < ApplicationController
+
+    skip_before_action :verify_authenticity_token
+
     def index 
         plot_points = PlotPoint.all 
         render json: PlotPointSerializer.new(plot_points)
@@ -12,9 +15,9 @@ class PlotPointsController < ApplicationController
     def create
         plot_point = PlotPoint.new(plot_point_params)
         if plot_point.save
-            render json: PlotPointSerializer.new(plot_point)
+            render json: {message: "plot point has been saved!"}
         else
-            render json: {error: "failed to save"}
+            render json: {message: "failed to save"}
         end
     end
 
@@ -36,6 +39,6 @@ class PlotPointsController < ApplicationController
     private
 
     def plot_point_params
-        params.require(:plot_point).permit(:description, :order, :story_id)
+        params.require(:plot_point).permit(:description, :story_id)
     end
 end
