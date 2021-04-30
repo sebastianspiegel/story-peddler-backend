@@ -1,4 +1,7 @@
 class CharactersController < ApplicationController
+
+    skip_before_action :verify_authenticity_token
+
     def index 
         characters = Character.all 
         render json: CharacterSerializer.new(characters)
@@ -12,7 +15,7 @@ class CharactersController < ApplicationController
     def create
         character = Character.new(character_params)
         if character.save
-            render json: CharacterSerializer.new(character)
+            render json: {message: "#{character.name} has been created!"}
         else
             render json: {message: "failed to save"}
         end
