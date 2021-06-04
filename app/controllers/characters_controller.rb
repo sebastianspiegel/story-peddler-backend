@@ -15,9 +15,9 @@ class CharactersController < ApplicationController
     def create
         character = Character.new(character_params)
         if character.save
-            render json: {message: "#{character.name} has been created!"}
+            render json: {message: "#{character.name} has been created!", success: true}
         else
-            render json: {message: "failed to save"}
+            render json: {message: "failed to save", success: false}
         end
     end
 

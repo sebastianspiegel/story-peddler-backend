@@ -15,9 +15,9 @@ class PlotPointsController < ApplicationController
     def create
         plot_point = PlotPoint.new(plot_point_params)
         if plot_point.save
-            render json: {message: "plot point has been saved!"}
+            render json: {message: "plot point has been saved!", success: true}
         else
-            render json: {message: "failed to save"}
+            render json: {message: "failed to save", success: false}
         end
     end
 
