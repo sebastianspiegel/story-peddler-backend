@@ -33,9 +33,12 @@ class StoriesController < ApplicationController
     def update 
         story = Story.find(params[:id])
         if story.update(story_params)
-            render json: StorySerializer.new(story)
+            render json: {
+                story: story,
+                success: true
+            }
         else
-            render json: {error: "failed to update"}
+            render json: {message: "failed to update"}
         end
     end
 
