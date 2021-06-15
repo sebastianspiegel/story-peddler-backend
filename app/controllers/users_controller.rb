@@ -9,6 +9,12 @@ class UsersController < ApplicationController
 
     def show
         user = User.find(params[:id])
+        # render json: {
+        #     # user.to_json(include: :stories, except: :password_digest)
+        #     user: user,
+        #     stories: user.stories,
+        #     success: true
+        # }
         render json: user.to_json(include: :stories, except: :password_digest)
     end
 
